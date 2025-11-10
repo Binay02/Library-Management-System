@@ -17,8 +17,8 @@ initial_books = [
 ]
 
 initial_members = [
-    ("Alice",),
-    ("Bob",)
+    ("Binay",),
+    ("Himanshu",)
 ]
 
 
