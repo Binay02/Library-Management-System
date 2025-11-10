@@ -30,6 +30,13 @@ def setup_database():
     cursor.execute("USE library_db")
 
     cursor.execute("""
+        CREATE TABLE IF NOT EXISTS members (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(255)
+        )
+    """)
+    
+    cursor.execute("""
         CREATE TABLE IF NOT EXISTS books (
             id INT AUTO_INCREMENT PRIMARY KEY,
             title VARCHAR(255),
@@ -39,12 +46,7 @@ def setup_database():
             FOREIGN KEY (issued_to) REFERENCES members(id) ON DELETE SET NULL
         )
     """)
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS members (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(255)
-        )
-    """)
+    
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS issuance (
             id INT AUTO_INCREMENT PRIMARY KEY,
@@ -245,5 +247,5 @@ def main():
         else:
             print("Invalid choice!")
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
